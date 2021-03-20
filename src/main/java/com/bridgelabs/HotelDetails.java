@@ -1,15 +1,15 @@
 package com.bridgelabs;
 
-public class HotelDetails {
-        private String hotelName;
-        private int regularCustomerWeekDayRate;
-        private int regularCustomerWeekEndRate;
+public class HotelDetails implements Comparable {
+    private String hotelName;
+    private int regularCustomerWeekDayRate;
+    private int regularCustomerWeekEndRate;
 
-        public HotelDetails(String hotelName, int regularCustomerWeekDayRate, int regularCustomerWeekEndRate) {
-            this.hotelName = hotelName;
-            this.regularCustomerWeekDayRate = regularCustomerWeekDayRate;
-            this.regularCustomerWeekEndRate = regularCustomerWeekEndRate;
-        }
+    public HotelDetails(String hotelName, int regularCustomerWeekDayRate, int regularCustomerWeekEndRate) {
+        this.hotelName = hotelName;
+        this.regularCustomerWeekDayRate = regularCustomerWeekDayRate;
+        this.regularCustomerWeekEndRate = regularCustomerWeekEndRate;
+    }
 
     public String getHotelName() {
         return hotelName;
@@ -41,4 +41,11 @@ public class HotelDetails {
                 "hotelName=" + hotelName + " regularCustomerWeekDayRate=" + regularCustomerWeekDayRate +
                 " regularCustomerWeekEndRate=" + regularCustomerWeekEndRate + " \n ";
     }
+
+    @Override
+    public int compareTo(Object o) {
+        int compareRate = ((HotelDetails) o).regularCustomerWeekDayRate;
+        return this.regularCustomerWeekDayRate - compareRate;
+    }
 }
+
