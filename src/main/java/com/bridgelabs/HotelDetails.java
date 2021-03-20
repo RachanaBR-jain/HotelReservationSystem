@@ -1,43 +1,61 @@
 package com.bridgelabs;
 
-import java.util.List;
-
-public class HotelDetails implements Comparable {
+public class HotelDetails implements Comparable,IRegularCostomer,IRewardCostomer {
 
     private String hotelName;
     private int regularCustomerWeekDayRate;
     private int regularCustomerWeekEndRate;
+    private int rewardCustomerWeekDayRate;
+    private int rewardCustomerWeekEndRate;
     private int rating;
 
-    public HotelDetails(String hotelName, int regularCustomerWeekDayRate, int regularCustomerWeekEndRate,int rating) {
+    public HotelDetails(String hotelName, int regularCustomerWeekDayRate, int regularCustomerWeekEndRate, int rewardCustomerWeekDayRate, int rewardCustomerWeekEndRate, int rating) {
         this.hotelName = hotelName;
         this.regularCustomerWeekDayRate = regularCustomerWeekDayRate;
         this.regularCustomerWeekEndRate = regularCustomerWeekEndRate;
-        this.rating =rating;
+        this.rewardCustomerWeekDayRate = rewardCustomerWeekDayRate;
+        this.rewardCustomerWeekEndRate = rewardCustomerWeekEndRate;
+        this.rating = rating;
     }
 
     public String getHotelName() {
         return hotelName;
     }
 
-    public int getRegularCustomerWeekDayRate() {
-        return regularCustomerWeekDayRate;
-    }
-
-    public int getRegularCustomerWeekEndRate() {
-        return regularCustomerWeekEndRate;
-    }
-
     public void setHotelName(String hotelName) {
         this.hotelName = hotelName;
+    }
+
+    public int getRegularCustomerWeekDayRate() {
+        return regularCustomerWeekDayRate;
     }
 
     public void setRegularCustomerWeekDayRate(int regularCustomerWeekDayRate) {
         this.regularCustomerWeekDayRate = regularCustomerWeekDayRate;
     }
 
+    public int getRegularCustomerWeekEndRate() {
+        return regularCustomerWeekEndRate;
+    }
+
     public void setRegularCustomerWeekEndRate(int regularCustomerWeekEndRate) {
         this.regularCustomerWeekEndRate = regularCustomerWeekEndRate;
+    }
+
+    public int getRewardCustomerWeekDayRate() {
+        return rewardCustomerWeekDayRate;
+    }
+
+    public void setRewardCustomerWeekDayRate(int rewardCustomerWeekDayRate) {
+        this.rewardCustomerWeekDayRate = rewardCustomerWeekDayRate;
+    }
+
+    public int getRewardCustomerWeekEndRate() {
+        return rewardCustomerWeekEndRate;
+    }
+
+    public void setRewardCustomerWeekEndRate(int rewardCustomerWeekEndRate) {
+        this.rewardCustomerWeekEndRate = rewardCustomerWeekEndRate;
     }
 
     public int getRating() {
@@ -50,9 +68,13 @@ public class HotelDetails implements Comparable {
 
     @Override
     public String toString() {
-        return " HotelDetails--->" +
-                "hotelName=" + hotelName + " regularCustomerWeekDayRate=" + regularCustomerWeekDayRate +
-                " regularCustomerWeekEndRate=" + regularCustomerWeekEndRate + " rating = " + rating + " \n ";
+        return "HotelDetails--->" +
+                "hotelName='" + hotelName + '\'' +
+                ", regularCustomerWeekDayRate=" + regularCustomerWeekDayRate +
+                ", regularCustomerWeekEndRate=" + regularCustomerWeekEndRate +
+                ", rewardCustomerWeekDayRate=" + rewardCustomerWeekDayRate +
+                ", rewardCustomerWeekEndRate=" + rewardCustomerWeekEndRate +
+                ", rating=" + rating + "\n";
     }
 
     @Override
