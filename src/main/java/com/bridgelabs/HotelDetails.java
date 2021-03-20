@@ -1,13 +1,18 @@
 package com.bridgelabs;
+
+import java.util.List;
+
 public class HotelDetails implements Comparable {
+
     private String hotelName;
     private int regularCustomerWeekDayRate;
     private int regularCustomerWeekEndRate;
-
-    public HotelDetails(String hotelName, int regularCustomerWeekDayRate, int regularCustomerWeekEndRate) {
+    private int rating;
+    public HotelDetails(String hotelName, int regularCustomerWeekDayRate, int regularCustomerWeekEndRate,int rating) {
         this.hotelName = hotelName;
         this.regularCustomerWeekDayRate = regularCustomerWeekDayRate;
         this.regularCustomerWeekEndRate = regularCustomerWeekEndRate;
+        this.rating =rating;
     }
 
     public String getHotelName() {
@@ -34,11 +39,19 @@ public class HotelDetails implements Comparable {
         this.regularCustomerWeekEndRate = regularCustomerWeekEndRate;
     }
 
+    public int getRating() {
+        return rating;
+    }
+
+    public void setRating(int rating) {
+        this.rating = rating;
+    }
+
     @Override
     public String toString() {
         return " HotelDetails--->" +
                 "hotelName=" + hotelName + " regularCustomerWeekDayRate=" + regularCustomerWeekDayRate +
-                " regularCustomerWeekEndRate=" + regularCustomerWeekEndRate + " \n ";
+                " regularCustomerWeekEndRate=" + regularCustomerWeekEndRate + " rating = " + rating + " \n ";
     }
 
     @Override

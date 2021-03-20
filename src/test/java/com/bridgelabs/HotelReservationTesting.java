@@ -12,9 +12,9 @@ import java.time.Month;
 public class HotelReservationTesting {
 
     IHotel hotelReservation;
-    HotelDetails lakewood = new HotelDetails("Lakewood", 110, 90);
-    HotelDetails bridgewood = new HotelDetails("Bridgewood", 150, 50);
-    HotelDetails ridgewood = new HotelDetails("Ridgewood", 220, 150);
+    HotelDetails lakewood = new HotelDetails("Lakewood", 110, 90, 3);
+    HotelDetails bridgewood = new HotelDetails("Bridgewood", 150, 50, 4);
+    HotelDetails ridgewood = new HotelDetails("Ridgewood", 220, 150, 5);
 
 
     @BeforeEach
@@ -40,6 +40,7 @@ public class HotelReservationTesting {
         String hName = hotelReservation.getCheapestHotel(startDate, lastDate);
         Assertions.assertEquals("Lakewood", hName);
     }
+
     @Test
     public void givenRegularCustomerName_WeekAndWeekendRate_ableToAddWeekAndWeenEndRate() {
 
@@ -47,11 +48,26 @@ public class HotelReservationTesting {
         Assertions.assertTrue(HotelReservation.hotels.contains(bridgewood));
 
     }
+
     @Test
     public void givenDateRange_ForBothWeekDayWeeEnd_ShouldReturnTrue() {
         LocalDate startDate = LocalDate.of(2020, Month.SEPTEMBER, 10);
         LocalDate lastDate = LocalDate.of(2020, Month.SEPTEMBER, 11);
         String hName = hotelReservation.getCheapestHotelBasedOnWeekDayWeekEnd(startDate, lastDate);
         Assertions.assertEquals("Lakewood and Bridgewood", hName);
+    }
+
+    @Test
+    public void returnRateOfHotels() {
+
+        int ratingOfLakehood = lakewood.getRating();
+        int ratingOfBridgehood = bridgewood.getRating();
+        int ratingOfRridgeBood = ridgewood.getRating();
+        System.out.println(ratingOfLakehood);
+        System.out.println(ratingOfBridgehood);
+        System.out.println(ratingOfRridgeBood);
+        Assertions.assertEquals(3, ratingOfLakehood);
+        Assertions.assertEquals(4, ratingOfBridgehood);
+        Assertions.assertEquals(5, ratingOfRridgeBood);
     }
 }

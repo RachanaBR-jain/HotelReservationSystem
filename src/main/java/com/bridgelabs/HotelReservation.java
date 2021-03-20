@@ -7,8 +7,10 @@ import java.time.temporal.ChronoUnit;
 import java.util.Comparator;
 
 public class HotelReservation<minRate> implements IHotel {
+    public static final int LAKEHOOD_RATING = 3;
+    public static final int BRIDGEHOOD_RATING = 4;
+    public static final int RIDGEHOOD_RARING = 5;
     public static List<HotelDetails> hotels;
-
 
     public HotelReservation() {
         hotels = new ArrayList<>();
@@ -36,7 +38,7 @@ public class HotelReservation<minRate> implements IHotel {
 
     public String getCheapestHotelBasedOnWeekDayWeekEnd(LocalDate startDate, LocalDate endDate) {
         long noOfDays = ChronoUnit.DAYS.between(startDate, endDate);
-        System.out.println("No of days between the days are:"+(int) noOfDays);
+        System.out.println("No of days between the days are:" + (int) noOfDays);
         Integer total[] = new Integer[3];
         int i = 0;
         for (HotelDetails hotel : hotels) {
@@ -64,6 +66,9 @@ public class HotelReservation<minRate> implements IHotel {
             return "Ridgewood";
         }
     }
+
+}
+
 //
 //    public static void main(String[] args) {
 //        System.out.println("***Welcome to hotel reservation program***");
@@ -81,5 +86,5 @@ public class HotelReservation<minRate> implements IHotel {
 //        System.out.println(h.getCheapestHotelBasedOnWeekDayWeekEnd(startDate, endDate));
 //    }
 
-}
+
 
