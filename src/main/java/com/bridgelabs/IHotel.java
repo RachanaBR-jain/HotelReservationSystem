@@ -3,8 +3,13 @@ package com.bridgelabs;
 import java.time.LocalDate;
 import java.util.List;
 
-interface IHotel {
-    public List<IRegularCostomer> addHotel_Regular(IRegularCostomer hotel);
-    public List<IRewardCostomer> addHotel_Reward(IRewardCostomer hotel);
+interface IHotel extends IHotelReservationSystem {
+    public List<IRegularCustomer> addHotel_Regular(IRegularCustomer hotel);
+
+    public List<IRewardCustomer> addHotel_Reward(IRewardCustomer hotel);
+
+    public  String getCheapAndBestHotel(LocalDate startDate, LocalDate endDate);
+
+    public  String bestRatedHotel();
 
 }
