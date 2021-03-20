@@ -4,7 +4,10 @@ import java.time.LocalDate;
 import java.util.List;
 
 interface IHotel {
-    public List<HotelDetails> addHotel(HotelDetails hotel);
+    List<HotelDetails> addHotel(HotelDetails hotel);
 
-    String findCheapestHotel(LocalDate startDate, LocalDate lastDate);
+    String getCheapestHotel(LocalDate startDate, LocalDate lastDate);
+
+    String getCheapestHotelBasedOnWeekDayWeekEnd(LocalDate stateDate, LocalDate endDate);
+
 }

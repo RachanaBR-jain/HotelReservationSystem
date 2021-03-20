@@ -2,10 +2,12 @@ package com.bridgelabs;
 public class HotelDetails implements Comparable {
     private String hotelName;
     private int regularCustomerWeekDayRate;
+    private int regularCustomerWeekEndRate;
 
-    public HotelDetails(String hotelName, int regularCustomerWeekDayRate) {
+    public HotelDetails(String hotelName, int regularCustomerWeekDayRate, int regularCustomerWeekEndRate) {
         this.hotelName = hotelName;
         this.regularCustomerWeekDayRate = regularCustomerWeekDayRate;
+        this.regularCustomerWeekEndRate = regularCustomerWeekEndRate;
     }
 
     public String getHotelName() {
@@ -16,6 +18,10 @@ public class HotelDetails implements Comparable {
         return regularCustomerWeekDayRate;
     }
 
+    public int getRegularCustomerWeekEndRate() {
+        return regularCustomerWeekEndRate;
+    }
+
     public void setHotelName(String hotelName) {
         this.hotelName = hotelName;
     }
@@ -24,10 +30,15 @@ public class HotelDetails implements Comparable {
         this.regularCustomerWeekDayRate = regularCustomerWeekDayRate;
     }
 
+    public void setRegularCustomerWeekEndRate(int regularCustomerWeekEndRate) {
+        this.regularCustomerWeekEndRate = regularCustomerWeekEndRate;
+    }
+
     @Override
     public String toString() {
         return " HotelDetails--->" +
-                "hotelName=" + hotelName + " regularCustomerWeekDayRate=" + regularCustomerWeekDayRate + "\n";
+                "hotelName=" + hotelName + " regularCustomerWeekDayRate=" + regularCustomerWeekDayRate +
+                " regularCustomerWeekEndRate=" + regularCustomerWeekEndRate + " \n ";
     }
 
     @Override
@@ -36,4 +47,3 @@ public class HotelDetails implements Comparable {
         return this.regularCustomerWeekDayRate - compareRate;
     }
 }
-
