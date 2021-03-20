@@ -1,6 +1,5 @@
 package com.bridgelabs;
-
-public class HotelDetails  {
+public class HotelDetails implements Comparable {
     private String hotelName;
     private int regularCustomerWeekDayRate;
 
@@ -17,7 +16,6 @@ public class HotelDetails  {
         return regularCustomerWeekDayRate;
     }
 
-
     public void setHotelName(String hotelName) {
         this.hotelName = hotelName;
     }
@@ -29,10 +27,13 @@ public class HotelDetails  {
     @Override
     public String toString() {
         return " HotelDetails--->" +
-                "hotelName=" + hotelName + " regularCustomerWeekDayRate=" + regularCustomerWeekDayRate + "\n ";
-
+                "hotelName=" + hotelName + " regularCustomerWeekDayRate=" + regularCustomerWeekDayRate + "\n";
     }
 
+    @Override
+    public int compareTo(Object o) {
+        int compareRate = ((HotelDetails) o).regularCustomerWeekDayRate;
+        return this.regularCustomerWeekDayRate - compareRate;
+    }
 }
-
 

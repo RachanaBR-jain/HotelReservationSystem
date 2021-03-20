@@ -33,4 +33,11 @@ public class HotelReservationTesting {
 
     }
 
+    @Test
+    public void givendateRange_WhenHotelProper_ShouldReturnTrue() {
+        LocalDate startDate = LocalDate.of(2020, Month.SEPTEMBER, 10);
+        LocalDate lastDate = LocalDate.of(2020, Month.SEPTEMBER, 11);
+        String hName = hotelReservation.findCheapestHotel(startDate, lastDate);
+        Assertions.assertEquals("Lakewood", hName);
+    }
 }
