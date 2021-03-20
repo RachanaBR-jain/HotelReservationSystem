@@ -1,14 +1,12 @@
 package com.bridgelabs;
 
-public class HotelDetails implements Comparable {
+public class HotelDetails  {
     private String hotelName;
     private int regularCustomerWeekDayRate;
-    private int regularCustomerWeekEndRate;
 
-    public HotelDetails(String hotelName, int regularCustomerWeekDayRate, int regularCustomerWeekEndRate) {
+    public HotelDetails(String hotelName, int regularCustomerWeekDayRate) {
         this.hotelName = hotelName;
         this.regularCustomerWeekDayRate = regularCustomerWeekDayRate;
-        this.regularCustomerWeekEndRate = regularCustomerWeekEndRate;
     }
 
     public String getHotelName() {
@@ -19,9 +17,6 @@ public class HotelDetails implements Comparable {
         return regularCustomerWeekDayRate;
     }
 
-    public int getRegularCustomerWeekEndRate() {
-        return regularCustomerWeekEndRate;
-    }
 
     public void setHotelName(String hotelName) {
         this.hotelName = hotelName;
@@ -31,21 +26,13 @@ public class HotelDetails implements Comparable {
         this.regularCustomerWeekDayRate = regularCustomerWeekDayRate;
     }
 
-    public void setRegularCustomerWeekEndRate(int regularCustomerWeekEndRate) {
-        this.regularCustomerWeekEndRate = regularCustomerWeekEndRate;
-    }
-
     @Override
     public String toString() {
         return " HotelDetails--->" +
-                "hotelName=" + hotelName + " regularCustomerWeekDayRate=" + regularCustomerWeekDayRate +
-                " regularCustomerWeekEndRate=" + regularCustomerWeekEndRate + " \n ";
+                "hotelName=" + hotelName + " regularCustomerWeekDayRate=" + regularCustomerWeekDayRate + "\n ";
+
     }
 
-    @Override
-    public int compareTo(Object o) {
-        int compareRate = ((HotelDetails) o).regularCustomerWeekDayRate;
-        return this.regularCustomerWeekDayRate - compareRate;
-    }
 }
+
 

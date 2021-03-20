@@ -12,9 +12,9 @@ import java.time.Month;
 public class HotelReservationTesting {
 
     IHotel hotelReservation;
-    HotelDetails lakewood = new HotelDetails("Lakewood", 110, 90);
-    HotelDetails bridgewood = new HotelDetails("Bridgewood", 160, 60);
-    HotelDetails ridgewood = new HotelDetails("Ridgewood", 220, 150);
+    HotelDetails lakewood = new HotelDetails("Lakewood", 110);
+    HotelDetails bridgewood = new HotelDetails("Bridgewood", 160);
+    HotelDetails ridgewood = new HotelDetails("Ridgewood", 220);
 
 
     @BeforeEach
@@ -33,18 +33,4 @@ public class HotelReservationTesting {
 
     }
 
-    @Test
-    public void givendateRange_WhenHotelProper_ShouldReturnTrue() {
-        LocalDate startDate = LocalDate.of(2020, Month.SEPTEMBER, 10);
-        LocalDate lastDate = LocalDate.of(2020, Month.SEPTEMBER, 11);
-        String hName = hotelReservation.findCheapestHotel(startDate, lastDate);
-        Assertions.assertEquals("Lakewood", hName);
-    }
-    @Test
-    public void givenRegularCustomerName_WeekAndWeekendRate_ableToAddWeekAndWeenEndRate() {
-
-        System.out.println(HotelReservation.hotels);
-        Assertions.assertTrue(HotelReservation.hotels.contains(bridgewood));
-
-    }
 }

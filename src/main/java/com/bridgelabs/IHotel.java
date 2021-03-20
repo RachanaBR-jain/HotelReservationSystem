@@ -5,6 +5,4 @@ import java.util.List;
 
 interface IHotel {
     public List<HotelDetails> addHotel(HotelDetails hotel);
-
-    String findCheapestHotel(LocalDate startDate, LocalDate lastDate);
 }
