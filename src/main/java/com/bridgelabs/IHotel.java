@@ -10,4 +10,6 @@ interface IHotel {
 
     String getCheapestHotelBasedOnWeekDayWeekEnd(LocalDate stateDate, LocalDate endDate);
 
+    String getCheapestHotelBasedOnRating(LocalDate startDate, LocalDate endDate);
+
 }

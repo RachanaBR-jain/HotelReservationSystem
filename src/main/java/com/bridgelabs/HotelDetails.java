@@ -8,6 +8,7 @@ public class HotelDetails implements Comparable {
     private int regularCustomerWeekDayRate;
     private int regularCustomerWeekEndRate;
     private int rating;
+
     public HotelDetails(String hotelName, int regularCustomerWeekDayRate, int regularCustomerWeekEndRate,int rating) {
         this.hotelName = hotelName;
         this.regularCustomerWeekDayRate = regularCustomerWeekDayRate;

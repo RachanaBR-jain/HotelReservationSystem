@@ -1,15 +1,13 @@
 package com.bridgelabs;
 
 import java.time.LocalDate;
-import java.time.Month;
 import java.util.*;
 import java.time.temporal.ChronoUnit;
-import java.util.Comparator;
 
 public class HotelReservation<minRate> implements IHotel {
-    public static final int LAKEHOOD_RATING = 3;
-    public static final int BRIDGEHOOD_RATING = 4;
-    public static final int RIDGEHOOD_RARING = 5;
+    public static final int LAKEWOOD_RATING = 3;
+    public static final int BRIDGEWOOD_RATING = 4;
+    public static final int RIDGEWOOD_RATING = 5;
     public static List<HotelDetails> hotels;
 
     public HotelReservation() {
@@ -67,24 +65,48 @@ public class HotelReservation<minRate> implements IHotel {
         }
     }
 
-}
+    public String  getCheapestHotelBasedOnRating(LocalDate startDate, LocalDate endDate) {
+        long noOfDays = ChronoUnit.DAYS.between(startDate, endDate);
+        System.out.println("No of days between the days are:" + (int) noOfDays);
+        Integer total[] = new Integer[3];
+        int i = 0;
+        for (HotelDetails hotel : hotels) {
+            total[i] = (int) noOfDays * (hotel.getRegularCustomerWeekDayRate() + hotel.getRegularCustomerWeekEndRate());
+            i++;
+        }
+        //total[0]:Lakewood, total[1]:Bridgewood, total[2]:Ridgewood
+        int minCost = Math.min(total[0], Math.min(total[1], total[2]));
+        if (minCost == total[0] && minCost == total[1]) {
+            String res= LAKEWOOD_RATING > BRIDGEWOOD_RATING ? "Lakewood" : "Bridgewood";
+            System.out.println("Cheapest hotel based on racting = " +res + " min cost = " +minCost);
+            return res;
 
-//
-//    public static void main(String[] args) {
-//        System.out.println("***Welcome to hotel reservation program***");
-//        HotelReservation h = new HotelReservation();
-//
-//        HotelDetails lakewood = new HotelDetails("Lakewood", 110, 90);
-//        HotelDetails bridgewood = new HotelDetails("Bridgewood", 150, 50);
-//        HotelDetails ridgewood = new HotelDetails("Ridgewood", 220, 150);
-//        h.addHotel(lakewood);
-//        h.addHotel(bridgewood);
-//        h.addHotel(ridgewood);
-//        LocalDate startDate = LocalDate.of(2020, Month.SEPTEMBER, 11);
-//        LocalDate endDate = LocalDate.of(2020, Month.SEPTEMBER, 12);
-//        long noOfDays = ChronoUnit.DAYS.between(startDate, endDate);
-//        System.out.println(h.getCheapestHotelBasedOnWeekDayWeekEnd(startDate, endDate));
-//    }
+        } else if (minCost == total[0] && minCost == total[2]) {
+            System.out.println("Total cost: $" + minCost);
+            String res = LAKEWOOD_RATING > RIDGEWOOD_RATING ? "Lakewood" : "Ridgewood";
+            System.out.println("Cheapest hotel based on racting = " +res + " min cost = " +minCost);
+            return res;
+
+        } else if (minCost == total[1] && minCost == total[2]) {
+            System.out.println(" Total cost: $" + minCost);
+            String res = BRIDGEWOOD_RATING > RIDGEWOOD_RATING ? "Bridgewood" : "Ridgewood";
+            System.out.println("Cheapest hotel based on rating = " +res + " min cost = " +minCost);
+            return res;
+
+        } else if (minCost == total[0]) {
+            System.out.println("Cheapest hotel based on is  Lakewood with min Cost of  " +minCost);
+
+            return "Lakewood";
+        } else if (minCost == total[1]) {
+            System.out.println("Cheapest hotel based on is  Bridgewood with min Cost of  " +minCost);
+            return "Brigewood";
+        } else {
+            System.out.println("Cheapest hotel based on is  Ridgewood with min Cost of  " +minCost);
+            return "Ridgewood";
+        }
+    }
+
+}
 
 
 

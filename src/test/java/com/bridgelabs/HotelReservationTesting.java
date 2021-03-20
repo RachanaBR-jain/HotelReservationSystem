@@ -70,4 +70,11 @@ public class HotelReservationTesting {
         Assertions.assertEquals(4, ratingOfBridgehood);
         Assertions.assertEquals(5, ratingOfRridgeBood);
     }
+    @Test
+    public void givenDateRange_ForBothWeekDayWeeEnd_FindCheckestHostelBasedOnRating_ShouldReturnTrue() {
+        LocalDate startDate = LocalDate.of(2020, Month.SEPTEMBER, 10);
+        LocalDate lastDate = LocalDate.of(2020, Month.SEPTEMBER, 11);
+        String hName = hotelReservation.getCheapestHotelBasedOnRating(startDate, lastDate);
+        Assertions.assertEquals("Bridgewood", hName);
+    }
 }
