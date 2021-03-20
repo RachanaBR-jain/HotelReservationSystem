@@ -40,4 +40,11 @@ public class HotelReservationTesting {
         String hName = hotelReservation.findCheapestHotel(startDate, lastDate);
         Assertions.assertEquals("Lakewood", hName);
     }
+    @Test
+    public void givenRegularCustomerName_WeekAndWeekendRate_ableToAddWeekAndWeenEndRate() {
+
+        System.out.println(HotelReservation.hotels);
+        Assertions.assertTrue(HotelReservation.hotels.contains(bridgewood));
+
+    }
 }
