@@ -1,9 +1,7 @@
 package com.bridgelabs;
 
-public interface IRegularCostomer {
-    public String getHotelName();
+public interface IRegularCostomer extends IHotelDetails {
 
-    public void setHotelName(String hotelName);
 
     public void setRegularCustomerWeekDayRate(int regularCustomerWeekDayRate);
 

@@ -1,10 +1,6 @@
 package com.bridgelabs;
 
-interface IRewardCostomer {
-
-    public String getHotelName();
-
-    public void setHotelName(String hotelName);
+interface IRewardCostomer extends IHotelDetails {
 
     public void setRewardCustomerWeekDayRate(int rewardCustomerWeekDayRate);
 

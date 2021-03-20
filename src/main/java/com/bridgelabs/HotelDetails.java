@@ -1,6 +1,6 @@
 package com.bridgelabs;
 
-public class HotelDetails implements Comparable,IRegularCostomer,IRewardCostomer {
+public class HotelDetails implements Comparable, IRewardCostomer, IRegularCostomer {
 
     private String hotelName;
     private int regularCustomerWeekDayRate;
