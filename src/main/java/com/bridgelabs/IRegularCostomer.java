@@ -1,6 +1,6 @@
 package com.bridgelabs;
 
-interface IRegularCustomer extends IHotelReservationSystem {
+interface IRegularCustomer extends IHotelReservationSystem{
 
 
     public void setRegularCustomerWeekDayRate(int regularCustomerWeekDayRate);

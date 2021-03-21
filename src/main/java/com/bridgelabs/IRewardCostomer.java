@@ -1,6 +1,6 @@
 package com.bridgelabs;
 
-interface IRewardCustomer extends IHotelReservationSystem  {
+interface IRewardCustomer extends IHotelReservationSystem{
 
     public void setRewardCustomerWeekDayRate(int rewardCustomerWeekDayRate);
 

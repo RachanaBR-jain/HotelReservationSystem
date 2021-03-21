@@ -1,5 +1,6 @@
 package com.bridgelabs;
 
+import com.bridgelabs.HotelReservationException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -28,14 +29,14 @@ public class HotelReservationTesting {
         System.out.println(HotelReservation.hotelsReward);
         Assertions.assertTrue(HotelReservation.hotelsReward.contains(lakewood));
     }
+
     @Test
-    public void givenWeekDayAndWeekEndRatesOf_RewardCostomer_findCheapestBestRatedHotel_mustReturnTrue() {
-        LocalDate startDate=LocalDate.of(2020, Month.SEPTEMBER, 11);
-        LocalDate endDate=LocalDate.of(2020, Month.SEPTEMBER, 12);
+    public void givenDateRange_WhenHotelProper_ShouldReturnTrue() {
+        // String input1 ="2020-09-10,2020-09-11"; // YYYY-MM-DD format
+        String input = "2020-09-11,2020-09-12";
         String bestRated = hotelReservation.bestRatedHotel();
-        System.out.println("Best rated hotel: "+hotelReservation.bestRatedHotel());
-        System.out.println("Cheapest best rated hotel for reward customers: "+hotelReservation.getCheapAndBestHotel(startDate,endDate));
+        System.out.println("Best rated hotel: " + hotelReservation.bestRatedHotel());
+        System.out.println("Cheapest best rated hotel for reward customers: " + hotelReservation.getCheapestHotel(input, "Reward"));
         Assertions.assertEquals("Ridgewood", bestRated);
     }
-
 }
