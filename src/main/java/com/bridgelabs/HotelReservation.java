@@ -72,7 +72,7 @@ public class HotelReservation implements IHotel {
         return valid;
     };
 
-    public String getCheapestHotel(String input, String loyalty) {
+    public String getCheapestHotel(String input, String loyalty) throws HotelReservationException {
         String arr[] = input.split(",");
         int numOfWeekdays = 0;
         int numOfWeekends = 0;
@@ -85,17 +85,26 @@ public class HotelReservation implements IHotel {
         }
         Integer total[] = new Integer[3]; // total[0]:LakewoodCost, total[1]:BridgewoodCost, total[2]:RidgewoodCost
         int i = 0;
-        if (loyalty.equals("Regular"))
+        if (loyalty.equals("Regular")) {
             hotels.addAll(hotelsRegular);
-        else
-            hotels.addAll(hotelsReward);
-
-
-        for (IHotelReservationSystem hd : hotels) {
-            IRewardCustomer hd1 = (IRewardCustomer) hd;
-            total[i] = numOfWeekdays * (hd1.getRewardCustomerWeekDayRate() + hd1.getRewardCustomerWeekEndRate());
-            i++;
+            for (IHotelReservationSystem hd : hotels) {
+                IRegularCustomer hd1 = (IRegularCustomer) hd;
+                total[i] = numOfWeekdays * (hd1.getRegularCustomerWeekDayRate() + numOfWeekdays * hd1.getRegularCustomerWeekEndRate());
+                i++;
+            }
         }
+        else if (loyalty.equals("Reward")) {
+            hotels.addAll(hotelsReward);
+            for (IHotelReservationSystem hd : hotels) {
+                IRewardCustomer hd1 = (IRewardCustomer) hd;
+                total[i] = numOfWeekdays * (hd1.getRewardCustomerWeekDayRate() + numOfWeekends * hd1.getRewardCustomerWeekEndRate());
+                i++;
+            }
+        }
+        else
+
+            throw new HotelReservationException(HotelReservationException.ExceptionType.ENTERED_INVALID ,"enter proper input");
+
         int minCost = Arrays.asList(total).stream().min(Comparator.naturalOrder()).get();
         if (minCost == total[0] && minCost == total[1]) {
             System.out.println("Total cost: $" + minCost + " for Lakewood and Bridgewood");
@@ -118,14 +127,17 @@ public class HotelReservation implements IHotel {
         }
     }
 
-    public String bestRatedHotel() {
+    public String bestRatedHotel()throws HotelReservationException {
         int maxRating = Math.max(LAKEWOOD_RATING, Math.max(BRIDGEWOOD_RATING, RIDGEWOOD_RATING));
         if (maxRating == LAKEWOOD_RATING)
             return "Lakewood";
         else if (maxRating == BRIDGEWOOD_RATING)
             return "Bridgewood";
-        else
+        else if (maxRating == RIDGEWOOD_RATING)
             return "Ridgewood";
+        else{
+            throw new HotelReservationException(HotelReservationException.ExceptionType.ENTERED_NULL ," Please enter Rating Rating is NULL");
+        }
     }
 
     // Monday is 1 and Sunday is 7
