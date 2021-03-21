@@ -100,6 +100,7 @@ public class HotelReservationTesting {
             Assertions.assertEquals(HotelReservationException.ExceptionType.ENTERED_INVALID, e.exceptionType);
         }
     }
+
     @Test
     public void givenDateRange_WhenProper_ShouldReturnTrue() {
         HotelReservation validator = new HotelReservation();
@@ -154,4 +155,10 @@ public class HotelReservationTesting {
         }
     }
 
+    @Test
+    public void givenDateRange_WhenRegularCustomer_ShouldReturnTrue() throws HotelReservationException {
+
+        String hotelName = hotelReservation.getCheapestHotel("2020-09-11,2020-09-12", "Regular");
+        Assertions.assertEquals("Bridgewood", hotelName);
+    }
 }

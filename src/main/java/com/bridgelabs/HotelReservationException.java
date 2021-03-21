@@ -1,4 +1,5 @@
 package com.bridgelabs;
+
 public class HotelReservationException extends Exception {
     enum ExceptionType {
         ENTERED_NULL,
@@ -10,6 +11,6 @@ public class HotelReservationException extends Exception {
 
     public HotelReservationException(ExceptionType exceptionType, String message) {
         super(message);
-        this.exceptionType=exceptionType;
+        this.exceptionType = exceptionType;
     }
 }

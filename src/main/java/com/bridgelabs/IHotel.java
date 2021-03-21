@@ -7,9 +7,9 @@ interface IHotel {
 
     public List<IRewardCustomer> addHotel_Reward(IRewardCustomer hotel);
 
-    public  String getCheapestHotel(String input, String loyalty) throws HotelReservationException;
+    public String getCheapestHotel(String input, String loyalty) throws HotelReservationException;
 
-    public  String bestRatedHotel() throws HotelReservationException;
+    public String bestRatedHotel() throws HotelReservationException;
 
 
 }
